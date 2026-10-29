@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import AppIntents
 
 @main
 struct PocChallengeApp: App {
+    init() {
+            ShortcutsProvider.updateAppShortcutParameters()
+        }
     var body: some Scene {
         WindowGroup {
             ContentView()

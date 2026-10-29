@@ -6,14 +6,21 @@
 //
 
 import SwiftUI
+import AppIntents
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 20) {
+            Image(systemName: "drop.fill")
+                .font(.system(size: 50))
+                .foregroundColor(.blue)
+            
+            Text("Registo de Água")
+                .font(.title)
+            
+            // Este botão chama diretamente a tua AddWaterIntent
+            Button("Registar Água", intent: AddWaterIntent())
+                .buttonStyle(.borderedProminent)
         }
         .padding()
     }
