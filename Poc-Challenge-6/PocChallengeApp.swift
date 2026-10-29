@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Poc_Challenge_6App: App {
+struct PocChallengeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
