@@ -35,16 +35,6 @@
 			path = "Poc-Challenge-6";
 			sourceTree = "<group>";
 		};
-		225942583093BA8F0052392E /* Poc-Challenge-6Tests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Poc-Challenge-6Tests";
-			sourceTree = "<group>";
-		};
-		225942623093BA8F0052392E /* Poc-Challenge-6UITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Poc-Challenge-6UITests";
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				2259424A3093BA8F0052392E /* Poc-Challenge-6 */,
-				225942583093BA8F0052392E /* Poc-Challenge-6Tests */,
-				225942623093BA8F0052392E /* Poc-Challenge-6UITests */,
 				225942493093BA8F0052392E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,9 +108,6 @@
 			dependencies = (
 				225942573093BA8F0052392E /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				225942583093BA8F0052392E /* Poc-Challenge-6Tests */,
-			);
 			name = "Poc-Challenge-6Tests";
 			productName = "Poc-Challenge-6Tests";
 			productReference = 225942553093BA8F0052392E /* Poc-Challenge-6Tests.xctest */;
@@ -140,9 +125,6 @@
 			);
 			dependencies = (
 				225942613093BA8F0052392E /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				225942623093BA8F0052392E /* Poc-Challenge-6UITests */,
 			);
 			name = "Poc-Challenge-6UITests";
 			productName = "Poc-Challenge-6UITests";
