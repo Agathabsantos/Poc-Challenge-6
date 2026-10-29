@@ -19,7 +19,7 @@ struct ContentView: View {
                 .font(.title)
             
             // Este botão chama diretamente a tua AddWaterIntent
-            Button("Registar Água", intent: AddWaterIntent())
+            Button("Registrar 250 ml", intent: AddWaterIntent(quantidade: 250))
                 .buttonStyle(.borderedProminent)
         }
         .padding()
