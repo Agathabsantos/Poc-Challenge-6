@@ -8,6 +8,8 @@
 import HealthKit
 
 enum HealthKitService {
+    
+    
     // a porta de entrada: um único HKHealthStore para o app todo
     static let store = HKHealthStore()
     
