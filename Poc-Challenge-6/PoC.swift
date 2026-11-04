@@ -40,15 +40,41 @@ struct AddWaterIntent: AppIntent {
 }
 
 struct ShortcutsProvider: AppShortcutsProvider {
+    @AppShortcutsBuilder
     static var appShortcuts: [AppShortcut] {
         AppShortcut(
             intent: AddWaterIntent(),
             phrases: [
-                "Registrar água no \(.applicationName)",
-                "Bebi água no \(.applicationName)",
-                "Tomei água no \(.applicationName)",
-                "Adicionar água no \(.applicationName)",
-                "\(.applicationName) registrar água"
+                    
+                    // Variações diretas e formais
+                    "Inserir água no \(.applicationName)",
+                    "Anotar água no \(.applicationName)",
+                    "Salvar água no \(.applicationName)",
+                    "Acrescentar água no \(.applicationName)",
+                    "Gravar água no \(.applicationName)",
+                    "Colocar água no \(.applicationName)",
+                    
+                    // Variações focadas em "hidratação"
+                    "Registrar hidratação no \(.applicationName)",
+                    "Atualizar hidratação no \(.applicationName)",
+                    "Adicionar hidratação no \(.applicationName)",
+                    "Inserir hidratação no \(.applicationName)",
+                    
+                    // Variações curtas e rápidas
+                    "Mais água no \(.applicationName)",
+                    "Nova água no \(.applicationName)",
+                    "Marca uma água no \(.applicationName)",
+                    "Hidratei no \(.applicationName)",
+                    
+                    // Variações conversacionais e naturais
+                    "Tomei um copo de água no \(.applicationName)",
+                    "Bebi um copo de água no \(.applicationName)",
+                    "Acabei de beber água no \(.applicationName)",
+                    "Anota que bebi água no \(.applicationName)",
+                    
+                    // Variações informais (nível "iOS 27")
+                    "Manda uma água pra dentro no \(.applicationName)",
+                    "Botei água pra dentro no \(.applicationName)"
             ],
             shortTitle: "Registrar Água",
             systemImageName: "drop.fill"
