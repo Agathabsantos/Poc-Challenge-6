@@ -9,6 +9,8 @@ import AppIntents
 import SwiftUI
 
 struct AddWaterIntent: AppIntent {
+    
+    
     static let title: LocalizedStringResource = "Adicionar água"
     static let description = IntentDescription("Registra a quantidade de água consumida pelo usuário no histórico de saúde.")
 
@@ -31,6 +33,7 @@ struct AddWaterIntent: AppIntent {
         }
 
         // TODO: salvar no HealthKit aqui
+        try await HealthKitService.registrarAgua(ml: quantidade)
 
         return .result(
             dialog: "Sucesso! Registrados \(quantidade) ml de água.",
