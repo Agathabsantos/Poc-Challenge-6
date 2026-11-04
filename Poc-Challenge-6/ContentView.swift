@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppIntents
+import HealthKit
 
 struct ContentView: View {
     var body: some View {
@@ -23,6 +24,16 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
         }
         .padding()
+        .task {
+            print("🔐 Pedindo autorização do HealthKit...")
+            do {
+                try await HealthKitService.pedirAutorizacao()
+                let status = HealthKitService.store.authorizationStatus(for: HealthKitService.tipoAgua)
+                print("✅ Autorização concluída. Status de escrita: \(status.rawValue)")
+            } catch {
+                print("❌ Erro no HealthKit: \(error)")
+            }
+        }
     }
 }
 
