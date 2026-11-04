@@ -357,7 +357,7 @@
 				DEVELOPMENT_TEAM = A8862Q9V7N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Aplicativo;
+				INFOPLIST_KEY_CFBundleDisplayName = Registrador;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Para mostrar quanto de água você já bebeu hoje.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Para registrar no app Saúde a água que você bebe.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -393,7 +393,7 @@
 				DEVELOPMENT_TEAM = A8862Q9V7N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Aplicativo;
+				INFOPLIST_KEY_CFBundleDisplayName = Registrador;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Para mostrar quanto de água você já bebeu hoje.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Para registrar no app Saúde a água que você bebe.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
