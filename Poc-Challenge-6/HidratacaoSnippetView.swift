@@ -14,14 +14,16 @@ struct HidratacaoSnippetView: View {
     var body: some View {
         VStack(spacing: 8) {
             Text(confirmado ? "Hidratação registrada!" : "Registrar hidratação")
-                .font(.title3.bold())
-                .frame(maxWidth: .infinity, alignment: confirmado ? .center : .leading)
+                .font(.title.bold())
+                .frame(maxWidth: .infinity, alignment: .center)
 
-            HStack(alignment: .firstTextBaseline, spacing: 6) {
-                Text("\(quantidade)")
-                    .font(.system(size: 60, weight: .bold, design: .rounded))
-                Text("ml")
-                    .font(.system(size: 28, weight: .bold, design: .rounded))
+            HStack {
+                HStack(alignment: .firstTextBaseline, spacing: 6) {
+                    Text("\(quantidade)")
+                        .font(.system(size: 60, weight: .bold, design: .rounded))
+                    Text("ml")
+                        .font(.system(size: 28, weight: .bold, design: .rounded))
+                }
             }
         }
         .foregroundStyle(Color.aguaAzul)
@@ -36,15 +38,13 @@ struct HidratacaoSnippetView: View {
                     endPoint: .bottom
                 )
 
-                ZStack {
-                    Onda(nivel: 0.45, amplitude: 10, fase: .pi)
-                        .fill(Color.aguaCiano)
-                    Onda(nivel: 0.55, amplitude: 12, fase: 0)
-                        .fill(Color.aguaAzul)
-                }
-                .frame(height: 90)
+                OndasAgua()
+                    .frame(height: 90)
             }
         }
+        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .padding(.horizontal, 16)
+        .padding(.top, 12)
     }
 }
 
@@ -52,6 +52,7 @@ struct Onda: Shape {
     var nivel: CGFloat
     var amplitude: CGFloat
     var fase: CGFloat
+    var frequencia: CGFloat = 1
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -60,7 +61,7 @@ struct Onda: Shape {
         path.move(to: CGPoint(x: 0, y: meio))
         for x in stride(from: 0, through: rect.width, by: 2) {
             let progresso = x / rect.width
-            let y = meio + sin(progresso * 2 * .pi + fase) * amplitude
+            let y = meio + sin(progresso * 2 * .pi * frequencia + fase) * amplitude
             path.addLine(to: CGPoint(x: x, y: y))
         }
         path.addLine(to: CGPoint(x: rect.width, y: rect.height))
@@ -70,10 +71,18 @@ struct Onda: Shape {
     }
 }
 
-extension Color {
-    static let aguaAzul   = Color(red: 0.23, green: 0.51, blue: 0.96) // onda da frente
-    static let aguaCiano  = Color(red: 0.34, green: 0.75, blue: 0.89) // onda de trás
-    static let aguaFundo  = Color(red: 0.90, green: 0.97, blue: 0.99) // fim do degradê
+// Ondas do rodapé, iguais no app e no snippet do Siri
+struct OndasAgua: View {
+    var body: some View {
+        ZStack {
+            // Onda de trás: crista no meio-direita
+            Onda(nivel: 0.2, amplitude: 14, fase: 0.3)
+                .fill(Color.aguaCiano)
+            // Onda da frente: crista à esquerda, vale no meio-direita, sobe na borda direita
+            Onda(nivel: 0.4, amplitude: 18, fase: .pi, frequencia: 1.25)
+                .fill(Color.aguaAzul)
+        }
+    }
 }
 
 #Preview("Confirmação") {
