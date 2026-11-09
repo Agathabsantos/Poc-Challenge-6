@@ -25,7 +25,7 @@ enum HealthKitService {
         //pop-up de permissão do app Saúde
         try await store.requestAuthorization(
             toShare: [tipoAgua], //escrever
-            read: [tipoAgua] //ler
+            read: [] //ler
         )
     }
     
@@ -47,24 +47,4 @@ enum HealthKitService {
         
         try await store.save(amostra)
     }
-    
-    // ler quanto foi bebido hoje (da meia-noite até agora)
-    static func totalDeHoje() async throws -> Int {
-        // Filtro: só registros de hoje (da meia-noite até agora)
-        let inicioDoDia = Calendar.current.startOfDay(for: .now)
-        let filtroHoje = HKQuery.predicateForSamples(withStart: inicioDoDia, end: .now)
-
-        // Pergunta: "some todos os registros de água de hoje"
-        //    .cumulativeSum: o próprio HealthKit soma os registros pra gente
-        let consulta = HKStatisticsQueryDescriptor(
-            predicate: .quantitySample(type: tipoAgua, predicate: filtroHoje),
-            options: .cumulativeSum
-        )
-
-        let resultado = try await consulta.result(for: store)
-        let ml = resultado?.sumQuantity()?.doubleValue(for: .literUnit(with: .milli)) ?? 0
-        return Int(ml)
-    }
-    
-    
 }
